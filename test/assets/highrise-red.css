@@ -1,0 +1,52 @@
+div#Header {
+	background-color: #900;
+}
+
+div#Header h1, #global_links a {
+	color: #ffe3e3;
+}
+
+#Tabs a:link, #Tabs a:visited, #Tabs a.current:link, #Tabs a.current:visited {
+	border-color: #900;
+}
+
+#Tabs a:link, #Tabs a:visited {
+	background-color: #c00;
+	border-bottom-color: #c00;
+}
+
+#Tabs li.workspace a:link, #Tabs li.workspace a:visited {
+	background-color: #B30000;
+	border-bottom-color: #B30000;
+}
+
+#Tabs a:hover,
+#Tabs li.workspace a:hover {
+	background-color: #600;
+	border-bottom-color: #600;
+}
+
+#Tabs a.current:link, #Tabs a.current:visited,
+#Tabs li.workspace a.current:link, #Tabs li.workspace a.current:visited {
+	color: #000;
+	border-bottom-color: #e5e5e5;
+}
+
+#admin_links {
+	color: #300;
+}
+
+#Tabs a:hover, 
+#Tabs li.workspace a:hover {
+	color: #fff;
+	background: #670e02;
+	border-bottom: 1px solid #670e02;
+}
+
+#global_links {
+  color: #ff5b5b;
+}
+
+#upgrade_bar, #upgrade_bar a {
+	color: #fff;
+}

@@ -1,0 +1,1116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>JavaScript unit test file</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <script src="../assets/jsunittest.js" type="text/javascript"></script>
+  <script src="../assets/prototype.js"></script>
+  
+  <script src="../../src/person.js" type="text/javascript"></script>
+  
+  <link rel="stylesheet" href="../assets/highrise.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="../assets/highrise-red.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="../assets/unittest.css" type="text/css" />
+</head>
+<body>
+
+<div id="content">
+
+  <div id="header">
+    <h1>JavaScript unit test file</h1>
+    <p>
+      This file tests extensions to <strong>highrisehq.com/people/XXXX</strong> page.
+    </p>
+  </div>
+  <!-- Log output (one per Runner, via {testLog: "testlog"} option)-->
+  <div id="testlog"></div>
+  
+
+  <!-- Put sample/test html here -->
+  <div id="sample">
+
+
+
+		    <div id="swap_to">
+
+		    </div>
+
+		    <div id="swap_from">
+		      <div id="screen_body" class="container">
+		        <div class="Left">
+		          <div class="col">
+
+
+
+
+
+
+
+		            <div class="page_header">
+
+		    <div class="subject_header_links">
+
+		        <a href="/people/9129952/edit" class="admin" onclick='ReturnTo.remember("/people/9129952/edit")'>Edit this person</a>
+
+		    </div>
+
+
+		  <table class="subject_header">
+		    <tbody><tr>
+		      <td class="icon">
+		        <a href="/people/9129952" class="avatar"><img alt="Dr Nic Williams" class="avatar" id="person-avatar-large-9129952" src="https://asset2.highrisehq.com/avatars/person/0912/9952-large.png?1219230914" title="Dr Nic Williams" height="53" width="53"></a>
+		      </td>
+
+		      <td class="name">
+		        <h1>
+
+		            Dr Nic Williams
+
+		        </h1>
+
+
+		          <div class="subject_details">
+
+		              <a href="/people?title=CEO" class="grey">CEO</a>
+
+
+		                at <a href="/companies/9129951" class="grey">Dr Nic Academy Pty Ltd</a>
+
+
+
+		            <div class="tags">
+		  <div class="list" id="show_tags">
+		  <img alt="Icon" class="tag" src="https://asset0.highrisehq.com/images/tags/icon.gif?1219549621">
+
+
+		    <a href="/tags/254204" class="grey tag">staff</a>,
+
+
+
+		    <span class="edit"><a href="#" id="edit_tags_link" onclick="$('show_tags').hide(); $('edit_tags').show(); $('new_tag_name').focus(); return false;">Edit tags</a></span>
+
+		</div>
+
+		  <div class="edit" id="edit_tags" style="display: none;">
+		    <div id="deletable_tags" class="list">
+
+		    <span class="wrapper" id="tag_254204_wrapper">
+		      <span>staff&nbsp;<a class="image" href="#" id="tag_254204" onclick="if (confirm('Are you sure you want to delete this tag?')) { $(this).addClassName('busy'); new Ajax.Request('/parties/9129952/tags/254204', {asynchronous:true, evalScripts:true, method:'delete'}); }; return false;"><img alt="Trash" src="https://asset1.highrisehq.com/images/trash.gif?1219549621"></a>
+		        </span>
+		    </span>
+
+		</div>
+
+
+		    <form action="/parties/9129952/tags" method="post" onsubmit="new Ajax.Request('/parties/9129952/tags', {asynchronous:true, evalScripts:true, parameters:Form.serialize(this)}); return false;">
+		    <span class="header">Add tags one at a time:</span>
+		      <input autocomplete="off" id="new_tag_name" name="name" type="text">
+		      <div style="display: none;" class="auto_complete" id="new_tag_name_matches"></div><script type="text/javascript">
+		//<![CDATA[
+		var new_tag_name_auto_completer = new Ajax.Autocompleter('new_tag_name', 'new_tag_name_matches', '/tags/search', {paramName:'term'})
+		//]]>
+		</script>
+
+		      <p class="submit">
+		        <input name="commit" onclick="this.setAttribute('originalValue', this.value);this.disabled=true;this.value='Adding this tag…';;result = (this.form.onsubmit ? (this.form.onsubmit() ? this.form.submit() : false) : this.form.submit());if (result == false) { this.value = this.getAttribute('originalValue'); this.disabled = false };return result;" value="Add this tag" type="submit"> 
+		        or <a class="admin" href="#" onclick="$('show_tags').show(); $('edit_tags').hide();; return false;">Close</a>
+		      </p>
+		    </form>
+		  </div>
+		</div>
+		          </div>
+
+		      </td>
+		    </tr>
+		  </tbody></table>
+		</div>
+
+		            <div class="innercol">
+
+
+
+
+
+
+
+
+		<div class="recording" id="new_note_container">
+		  <div class="permalink">
+		    <strong>
+		      Add an entry to Dr Nic's history
+		    </strong>
+		  </div>
+
+
+
+		  <div class="body">
+		    <form action="/notes" class="new_note" enctype="multipart/form-data" id="new_note" method="post">
+		      <input id="note_subject_id" name="note[subject_id]" value="9129952" type="hidden">
+		      <input id="note_subject_type" name="note[subject_type]" value="Party" type="hidden">
+
+		      <div class="inputs">
+		        <textarea cols="40" id="note_body" name="note[body]" onbeforepaste="Notes.adjustTextarea(this)" oninput="Notes.adjustTextarea(this)" onkeypress="Notes.adjustTextarea(this)" rows="4" style="height: 70px;"></textarea>
+
+		        <div class="submits">
+		          <input name="commit" onclick="return Notes.submit(this.form, '/notes')" value="Add this note" type="submit">
+		        </div>
+
+		        <div id="new_extras">
+		          <div class="show_options" id="link_to_extras">
+		  <a href="#" onclick='$("extras").toggle();
+		$("link_to_extras").toggle();; return false;'>Show options (files, cases, permissions)</a>
+		</div>
+
+		<div class="extras" id="extras" style="display: none;">
+		  <div class="extra">
+		    <h2>Attach files</h2>
+		    <div id="files_for_new_note">
+
+
+		    <script type="text/javascript">
+		//<![CDATA[
+		Files.uploadKey = 'AAFRgEiw4moAAY3ZwIHr7R-vt8gCLnk5-q6pSKfUvHo='
+		//]]>
+		</script>
+
+		    <div class="pending_attachments"></div><div class="file_selectors">
+		  <p class="offscreen"></p>
+		  <p class="template">
+		    <input class="file_selectors" id="" name="note[files][]" onchange="PendingAttachments.add(this, 'files_for_new_note')" type="file">
+		  </p>      
+		</div>
+
+		</div>
+
+		  </div>
+
+
+		    <div class="extra">
+		      <h2>Attach this note to a case</h2>
+
+
+		        <p id="kases_select">
+
+
+		<select name="note[kase_id]" class="kase_id" id="kases_options" onchange="Kases.selected(this, {
+		    kases_url: 'https://drnic.highrisehq.com/kases', 
+		    presentation_url: '/kases_presentation/update_recording_permissions', 
+
+		    subject_type: 'Person', 
+		    subject_id: 9129952 })">
+		  <option value="">No case</option>
+
+		    <option value="new_kase">Create a new case…</option>
+
+		  <option value="87839">AtlanticDVD site review</option>
+		<option value="87856">Giraffesoft sub-contracting</option>
+		<option value="87602">idlasso rewrite</option>
+		<option value="87599">iPhone SDK app for Oakley</option>
+		<option value="87601">QNH 4-6wk fulltime</option>
+		</select>
+
+		        </p>
+
+		    </div>
+
+
+
+		    <div class="extra">
+		      <h2>Who else can see this note?</h2>
+
+		      <div class="permissions" id="note_permissions">
+		        <div class="permission_categories">
+		  <div><label><input checked="checked" id="new_note_visible_to_everyone" name="note[visible_to]" onclick="$(this).up('form').select('div.edit_viewers').invoke('hide')" value="Everyone" type="radio"> Everyone</label></div>
+		  <div><label><input id="new_note_visible_to_owner" name="note[visible_to]" onclick="$(this).up('form').select('div.edit_viewers').invoke('hide')" value="Owner" type="radio"> Only I can</label></div>
+
+
+
+		  <div><label><input id="new_note_visible_to_adhoc_group" name="note[visible_to]" onclick="if ($('new_note_group')) { $('new_note_group').hide(); } $('new_note_group_members').show()" value="AdhocGroup" type="radio"> Select people…</label></div>
+		  <div class="edit_viewers" id="new_note_group_members" style="display: none;"><div>
+		  <select class="viewer_selector" name="note[group_member_ids][]" onchange="Permissions.revealControls(this)"><option selected="selected" style="font-style: italic;" value="">Select somebody…</option><option value="102331">Nigel Rausch</option></select>
+
+		  <span class="remove_viewer_selector" style="display: none;">
+		    <a class="image" href="#" onclick="Permissions.removeSelector(this.parentNode.parentNode, 
+		          'new_note'); return false;"><img alt="Remove" src="https://asset3.highrisehq.com/images/remove.gif?1219549621"></a>
+		  </span>
+
+		  <span class="add_viewer_selector" style="display: none;">
+		    <a class="image" href="#" onclick='Permissions.addSelector("new_note");; return false;'><img alt="Add" src="https://asset0.highrisehq.com/images/add.gif?1219549621"></a>
+		  </span>
+		</div>
+		<input id="new_note_group_member_id_of_current_user" name="note[group_member_ids][]" value="101849" type="hidden"></div>
+
+		  <input id="new_note_viewable_collection" name="viewable_collection" value="notes" type="hidden"><input id="new_note_viewable_id" name="viewable_id" type="hidden">
+		</div>
+
+		      </div>
+		    </div>
+
+
+		  <div class="extra">
+		    <h2>When did it happen?</h2>
+		    <select id="note_created_at_2i" name="note[created_at(2i)]">
+		<option value="1">January</option>
+		<option value="2">February</option>
+		<option value="3">March</option>
+		<option value="4">April</option>
+		<option value="5">May</option>
+		<option value="6">June</option>
+		<option value="7">July</option>
+		<option selected="selected" value="8">August</option>
+		<option value="9">September</option>
+		<option value="10">October</option>
+		<option value="11">November</option>
+		<option value="12">December</option>
+		</select>
+		<select id="note_created_at_3i" name="note[created_at(3i)]">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+		<option value="10">10</option>
+		<option value="11">11</option>
+		<option value="12">12</option>
+		<option value="13">13</option>
+		<option value="14">14</option>
+		<option value="15">15</option>
+		<option value="16">16</option>
+		<option value="17">17</option>
+		<option value="18">18</option>
+		<option value="19">19</option>
+		<option value="20">20</option>
+		<option value="21">21</option>
+		<option value="22">22</option>
+		<option value="23">23</option>
+		<option selected="selected" value="24">24</option>
+		<option value="25">25</option>
+		<option value="26">26</option>
+		<option value="27">27</option>
+		<option value="28">28</option>
+		<option value="29">29</option>
+		<option value="30">30</option>
+		<option value="31">31</option>
+		</select>
+		<select id="note_created_at_1i" name="note[created_at(1i)]">
+		<option value="2003">2003</option>
+		<option value="2004">2004</option>
+		<option value="2005">2005</option>
+		<option value="2006">2006</option>
+		<option value="2007">2007</option>
+		<option selected="selected" value="2008">2008</option>
+		<option value="2009">2009</option>
+		<option value="2010">2010</option>
+		<option value="2011">2011</option>
+		<option value="2012">2012</option>
+		<option value="2013">2013</option>
+		</select>
+
+		  </div>
+
+		  <div class="show_options actually_hide_options">
+		    <a href="#" onclick='$("extras").toggle();
+		$("link_to_extras").toggle();; return false;'>Close</a>
+		  </div>
+		</div>
+		        </div>
+		  		</div>
+		    </form>
+		  </div>
+		</div>
+
+
+		<div id="stream">
+
+
+
+		  <div id="recordings_header">
+
+		    <div>
+		      <span class="toggle">
+
+		  <strong>Expanded view</strong> | 
+		  <a href="/people/toggle_forum_view?view=list&amp;which_cookie=subjects" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;f.submit();return false;">List view</a>
+
+		    | <a href="/people/toggle_forum_view?view=file&amp;which_cookie=subjects" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;f.submit();return false;">File view</a>
+
+
+
+		      </span>
+		      <strong>
+		        Dr Nic's
+		          history
+		      </strong>
+		    </div>
+
+		</div>
+
+
+
+
+		<div class="recordings">
+
+
+
+		<div id="email_5370228" class="first recording email hover_region hover_target">
+
+		    <div class="nubbin">
+		      <div class="nubbin_content">
+		        <ul>
+		          <li><a class="image" href="#" onclick="if (confirm('Are you sure you want to delete this email?')) { $('email_5370228').addClassName('busy'); new Ajax.Request('/emails/5370228?from=people&amp;subject_id=9129952&amp;subject_type=Person', {asynchronous:true, evalScripts:true, method:'delete'}); }; return false;"><img alt="Trash" src="https://asset1.highrisehq.com/images/trash.gif?1219549621"></a></li>
+		          <li><a class="edit_link admin" href="#" onclick="$('email_5370228').addClassName('busy'); new Ajax.Request('/emails/5370228/edit?from=people&amp;subject_id=9129952&amp;subject_type=Person', {asynchronous:true, evalScripts:true, method:'get'}); return false;"><span>Edit</span></a></li>
+		        </ul>
+		      </div>
+		    </div>
+
+		  <div class="recording_content">
+
+
+		<div class="avatar">
+		  <a href="/people/9129952" class="avatar"><img alt="Dr Nic Williams" class="avatar" id="person-avatar-large-9129952" src="https://asset2.highrisehq.com/avatars/person/0912/9952-large.png?1219230914" title="Dr Nic Williams" height="53" width="53"></a>
+		</div>
+
+		<div class="permalink">
+		  <strong>Friday, August 22</strong> <a href="https://drnic.highrisehq.com/emails/5370228">Email via Dr Nic W.</a> 
+		</div>
+
+
+
+		    <div class="body">
+		      <a href="/emails/5370228" class="image"><img alt="Email" class="email_icon" src="https://asset3.highrisehq.com/images/email.gif?1219549621"></a>
+		Oakley iPhone Application
+		<blockquote>
+		  <p>I was a little shocked/excited that the project is now going ahead as of
+		today; I had pencilled in the work to start in a month or so after you told
+		me you needed to do UI designs and wireframes etc :)
+		Due to the short timeframe for the project and the importance of finishing
+		on time, I've found two local expert iPhone developers who are available to
+		assist on the project (one is available 3 days a week, the other for 1 day a
+		week). They'll subcontract to me, so I'm having them sign an NDA between my
+		company and them before discussing the who/where/whats. Despite their
+		significant skill set/expertise, I will still only charge you the originally
+		quoted daily rate for their work. I think its too important that we bring
+		them on to ensure the project gets a solid start to ensure it reaches its
+		timeline deadlines.</p>
+
+		<p>Some other service agreement items for us to agree on:</p>
+
+		<p>   - We will be as communicative as possible and make ourselves as available
+		   to converse with your local people as possible. Time can quickly slip away
+		   if emails are sent on one day, replied to the next, and the next response
+		   comes back on the third day; so we will endeavor to respond to questions
+		   asap; Similarly, Oakley staff need to endeavor to respond to questions asap
+		   too. There may only be a few hours in each day where people are both awake
+		   and working.
+		   - I send out invoices to clients monthly, on the 15th of the month. I
+		   accept payment with 30 days, though earlier payment makes for happy,...</p><p><a href="https://drnic.highrisehq.com/emails/5370228" class="more">Read more…</a></p>
+		</blockquote>
+
+
+
+
+		<ul class="attachments">
+
+		</ul>
+
+
+		    </div>
+		  </div>
+		</div>
+
+
+
+		<div id="email_5348641" class="recording email hover_region hover_target">
+
+		    <div class="nubbin">
+		      <div class="nubbin_content">
+		        <ul>
+		          <li><a class="image" href="#" onclick="if (confirm('Are you sure you want to delete this email?')) { $('email_5348641').addClassName('busy'); new Ajax.Request('/emails/5348641?from=people&amp;subject_id=9129952&amp;subject_type=Person', {asynchronous:true, evalScripts:true, method:'delete'}); }; return false;"><img alt="Trash" src="https://asset1.highrisehq.com/images/trash.gif?1219549621"></a></li>
+		          <li><a class="edit_link admin" href="#" onclick="$('email_5348641').addClassName('busy'); new Ajax.Request('/emails/5348641/edit?from=people&amp;subject_id=9129952&amp;subject_type=Person', {asynchronous:true, evalScripts:true, method:'get'}); return false;"><span>Edit</span></a></li>
+		        </ul>
+		      </div>
+		    </div>
+
+		  <div class="recording_content">
+
+
+		<div class="avatar">
+		  <a href="/kases/87601" class="avatar"><img alt="QNH 4-6wk fulltime" class="avatar blank_avatar" id="kase-avatar-large-87601" src="https://asset2.highrisehq.com/images/avatars/case.gif?1219549621" title="QNH 4-6wk fulltime" height="53" width="53"></a>
+		</div>
+
+		<div class="permalink">
+		  <strong>Thursday, August 21</strong> <a href="https://drnic.highrisehq.com/emails/5348641">Email via Dr Nic W.</a> 
+		</div>
+
+
+		  <div class="link_to_attached_kase">
+
+		      Case: <a href="/kases/87601">QNH 4-6wk fulltime</a>
+
+		  </div>
+
+
+		    <div class="body">
+		      <a href="/emails/5348641" class="image"><img alt="Email" class="email_icon" src="https://asset3.highrisehq.com/images/email.gif?1219549621"></a>
+		Shorttime project in the Netherlands
+		<blockquote>
+		  <p>Just in time, my solicitor has finished a standard, "mutual" NDA that I will
+		use for all clients requiring an NDA to reduce the overhead cost of sending
+		each NDA to my solicitor to read. I've populated the "FirstParty" field with
+		the company names you provided in your own NDA on the front page. If you can
+		enter the contact details etc on the final page and sign it, then I'll do
+		likewise and we'll be done with this paperwork.</p>
+
+		<p>The project sounds like a good sized team. Is there a specific slice of work
+		that you require from me, or you wish to have an additional expert resource
+		for the team?</p>
+
+		<p>I suggest we use skype video chat to have an initial face-to-face to meet
+		each other, and discuss your plan and see how I might be able to assist. My
+		skype id is nicwilliams.</p>
+
+		<p>Cheers
+		Nic</p>
+
+		<p>On Wed, Aug 20, 2008 at 7:51 PM, Alexander Ketelaar &lt;
+		<a href="mailto:Alexander.Ketelaar@qnh.nl">Alexander.Ketelaar@qnh.nl</a>&gt; wrote:</p>
+
+		<p> Hi Nic,</p>
+
+		<p>My apologies for the late reation. I have internal approval from QNH on...</p><p><a href="https://drnic.highrisehq.com/emails/5348641" class="more">Read more…</a></p>
+		</blockquote>
+
+
+
+		  <div class="uploaded_images">
+
+		      <a href="https://drnic.highrisehq.com/files/730484" class="image" target="_blank"><img alt="730484" src="https://drnic.highrisehq.com/thumbnails/730484.png" height="100" width="100"></a>
+
+		  </div>
+
+
+		<ul class="attachments">
+		  <li>
+
+		    <img alt="Icon_doc_small" src="https://asset0.highrisehq.com/images/icons/icon_DOC_small.gif?1219549621">
+		    <a href="https://drnic.highrisehq.com/files/730485">Mutual NDA - Libersy in NL.doc</a>
+
+		</li>
+
+		</ul>
+
+
+		    </div>
+		  </div>
+		</div>
+
+
+
+		<div id="email_5346800" class="recording email hover_region hover_target">
+
+		    <div class="nubbin">
+		      <div class="nubbin_content">
+		        <ul>
+		          <li><a class="image" href="#" onclick="if (confirm('Are you sure you want to delete this email?')) { $('email_5346800').addClassName('busy'); new Ajax.Request('/emails/5346800?from=people&amp;subject_id=9129952&amp;subject_type=Person', {asynchronous:true, evalScripts:true, method:'delete'}); }; return false;"><img alt="Trash" src="https://asset1.highrisehq.com/images/trash.gif?1219549621"></a></li>
+		          <li><a class="edit_link admin" href="#" onclick="$('email_5346800').addClassName('busy'); new Ajax.Request('/emails/5346800/edit?from=people&amp;subject_id=9129952&amp;subject_type=Person', {asynchronous:true, evalScripts:true, method:'get'}); return false;"><span>Edit</span></a></li>
+		        </ul>
+		      </div>
+		    </div>
+
+		  <div class="recording_content">
+
+
+		<div class="avatar">
+		  <a href="/kases/87856" class="avatar"><img alt="Giraffesoft sub-contracting" class="avatar blank_avatar" id="kase-avatar-large-87856" src="https://asset2.highrisehq.com/images/avatars/case.gif?1219549621" title="Giraffesoft sub-contracting" height="53" width="53"></a>
+		</div>
+
+		<div class="permalink">
+		  <strong>Thursday, August 21</strong> <a href="https://drnic.highrisehq.com/emails/5346800">Email via Dr Nic W.</a> 
+		</div>
+
+
+		  <div class="link_to_attached_kase">
+
+		      Case: <a href="/kases/87856">Giraffesoft sub-contracting</a>
+
+		  </div>
+
+
+		    <div class="body">
+		      <a href="/emails/5346800" class="image"><img alt="Email" class="email_icon" src="https://asset3.highrisehq.com/images/email.gif?1219549621"></a>
+		Dr Nic's Looking for Work
+		<blockquote>
+		  <p>Hey James, its very exciting that you're having a bunch of wins as a
+		business man! Every now and then I fantasize about hire people and
+		accumulating clients. Sometimes I think about doing a startup. Then I
+		figured out I just want to be a self-funded researcher. Of course I'm
+		completely abusing the word "researcher." Its more like hacker/blogger. But
+		perhaps if more researchers were hackers/bloggers we'd like them more :)
+		Over the last 6 mths I've been working 2-5 days a week charging 600 Euros a
+		day (no one knows what an "Australian Dollar" is; probably the same with
+		"Canadian Dollars" :) Some clients hourly, some daily. But that's the daily
+		rate I aim for so I can justify the entire days I "lose" to open source and
+		playing with new stuff. Damn, if I could work 5 days in a row, each work for
+		50 weeks a year I'd do really well!</p>
+
+		<p>Do you think you have room within your charge-out rates to fit me in? I'm
+		never sure if 600 euros is a lot for clients or a little.</p>
+
+		<p>Cheers
+		Nic</p>
+
+		<p>On Tue, Aug 5, 2008 at 2:09 AM, James Golick  wrote:</p>
+
+		<p>Hey Nic,
+		...</p><p><a href="https://drnic.highrisehq.com/emails/5346800" class="more">Read more…</a></p>
+		</blockquote>
+
+
+
+
+		<ul class="attachments">
+
+		</ul>
+
+
+		    </div>
+		  </div>
+		</div>
+
+
+
+		<div id="email_5327831" class="recording email hover_region hover_target">
+
+		    <div class="nubbin">
+		      <div class="nubbin_content">
+		        <ul>
+		          <li><a class="image" href="#" onclick="if (confirm('Are you sure you want to delete this email?')) { $('email_5327831').addClassName('busy'); new Ajax.Request('/emails/5327831?from=people&amp;subject_id=9129952&amp;subject_type=Person', {asynchronous:true, evalScripts:true, method:'delete'}); }; return false;"><img alt="Trash" src="https://asset1.highrisehq.com/images/trash.gif?1219549621"></a></li>
+		          <li><a class="edit_link admin" href="#" onclick="$('email_5327831').addClassName('busy'); new Ajax.Request('/emails/5327831/edit?from=people&amp;subject_id=9129952&amp;subject_type=Person', {asynchronous:true, evalScripts:true, method:'get'}); return false;"><span>Edit</span></a></li>
+		        </ul>
+		      </div>
+		    </div>
+
+		  <div class="recording_content">
+
+
+		<div class="avatar">
+		  <a href="/kases/87601" class="avatar"><img alt="QNH 4-6wk fulltime" class="avatar blank_avatar" id="kase-avatar-large-87601" src="https://asset2.highrisehq.com/images/avatars/case.gif?1219549621" title="QNH 4-6wk fulltime" height="53" width="53"></a>
+		</div>
+
+		<div class="permalink">
+		  <strong>Wednesday, August 20</strong> <a href="https://drnic.highrisehq.com/emails/5327831">Email via Dr Nic W.</a> 
+		</div>
+
+
+		  <div class="link_to_attached_kase">
+
+		      Case: <a href="/kases/87601">QNH 4-6wk fulltime</a>
+
+		  </div>
+
+
+		    <div class="body">
+		      <a href="/emails/5327831" class="image"><img alt="Email" class="email_icon" src="https://asset3.highrisehq.com/images/email.gif?1219549621"></a>
+		Shorttime project in the Netherlands
+		<blockquote>
+		  <p>8 pages of NDA-legalese fine print... have you read it all? :)
+		Can the NDA be amended to cover my company and affiliated
+		individuals/companies rather that just me? I mentioned that I'll soon have
+		someone working in my office and possibly others after that. They will be
+		bound by an internal reciprocal NDA against all NDAs that I sign for the
+		company. Is saves me having to keep track of who has signed which NDAs for
+		which client/potential client, etc.</p>
+
+		<p>Cheers
+		Nic</p>
+
+		<p>On Wed, Aug 20, 2008 at 7:51 PM, Alexander Ketelaar &lt;
+		<a href="mailto:Alexander.Ketelaar@qnh.nl">Alexander.Ketelaar@qnh.nl</a>&gt; wrote:</p>
+
+		<p> Hi Nic,</p>
+
+		<p>My apologies for the late reation. I have internal approval from QNH on
+		your daily rate (surely for 96 hour and then we evaluate for the next
+		period). I'm still waiting for approval from our client.</p>
+
+		<p>So yes we are still looking, but I hope to know more at the end end of the
+		day (dutch time).</p>
+
+		<p>We have a NDA (I attached it) but you can send your comments on the...</p><p><a href="https://drnic.highrisehq.com/emails/5327831" class="more">Read more…</a></p>
+		</blockquote>
+
+
+
+
+		<ul class="attachments">
+
+		</ul>
+
+
+		    </div>
+		  </div>
+		</div>
+
+
+		  <div class="pagination_footer"><span class="feed"><a href="https://drnic.highrisehq.com/people/9129952.atom" class="image"><img alt="Feed" src="https://asset2.highrisehq.com/images/feed-icon-14x14.png?1219549621" align="absmiddle" height="14" width="14"></a> <a href="https://drnic.highrisehq.com/people/9129952.atom">Feed for Dr Nic Williams</a></span></div>
+		</div>
+
+		</div>
+
+
+
+		              <br style="clear: both;">
+		            </div>
+		          </div>
+
+		          <div class="bottom">
+		  <div id="Footer">
+		    <img src="/images/logo-small.png" alt="Highrise Logo" style="float: left;" height="32" width="38">
+		    <span style="padding-top: 10px; line-height: 1.4em;">
+		      <a href="http://productblog.37signals.com" target="_blank">Product blog</a> | <a href="http://forum.37signals.com/highrise" target="_blank">Customer forum</a><br>
+		      Highrise is a service of <a href="http://www.37signals.com" target="_blank">37signals</a>.&nbsp;&nbsp;<a href="http://www.highrisehq.com/privacy.html" target="_blank">Privacy policy</a> |
+		      <a href="http://www.highrisehq.com/terms.html" target="_blank">Terms of service</a>
+		  </span>
+		  </div>
+		</div>
+
+		        </div>
+
+		        <div class="Right">
+		          <div class="col sidebar">
+
+		  <div class="quick_find">
+		  <h2>Find someone by typing their name</h2>
+
+		  <div class="field">
+		    <input class="live_search_field" id="live_search_for_latest" live_search_results_id="parties_for_latest" name="live_search_for_latest" type="text"><script type="text/javascript">
+		//<![CDATA[
+		new Form.Element.Observer('live_search_for_latest', 1, function(element, value) {People.liveSearch('live_search_for_latest', '/parties/search', 'latest', {})})
+		//]]>
+		</script><script type="text/javascript">
+		//<![CDATA[
+		        $("live_search_for_latest").observe("keyup", People.onLiveSearchKeypress);
+		        Event.observe(window, "load", function() { $("live_search_for_latest").focus() });
+
+		//]]>
+		</script>
+
+		    <span class="live_search_spinner" style="display: none;">
+		      <img alt="Dots-white" src="https://asset1.highrisehq.com/images/dots-white.gif?1219549621">
+		    </span>
+		  </div>
+
+		  <div class="results" id="parties_for_latest" style="display: none;">
+
+
+		  </div>
+		</div>
+
+
+		<script type="text/javascript">
+		//<![CDATA[
+		Event.observe(window, "load", function() { $("note_body").focus() })
+		//]]>
+		</script>
+
+
+
+		<div class="tasks dont_print_tasks">
+		  <div class="new_task_wrapper">
+
+		  <div class="button_to_add_new" id="button_to_add_new_task">
+		    <a class="image" href="#" id="add_a_task" onclick="; return false;" onmousedown="$(this).addClassName('pressed')" onmouseup="$(this).removeClassName('pressed'); Tasks.swapButtonWithForm()"><img alt="Add a task" src="https://asset0.highrisehq.com/images/tasks/add_a_task.gif?1219549621"></a>
+		  </div>
+
+		  <div class="sidebar_form new_task" id="add_new_task" style="display: none;">
+		    <div class="inner task">
+		      <div class="header"><h1>Add a task about this person</h1></div>
+		      <div class="body">
+		  <form action="/tasks" class="new_task" id="form_task" method="post" onsubmit="$(this).addClassName('busy'); new Ajax.Request('/tasks', {asynchronous:true, evalScripts:true, parameters:Form.serialize(this)}); return false;">
+
+
+		    <div id="form_body_task" class="task_form">
+
+		<input id="subject_type" name="subject_type" value="Party" type="hidden">
+		<input id="subject_id" name="subject_id" value="9129952" type="hidden">
+		<input id="from" name="from" value="people" type="hidden">
+
+		<div class="new_task">
+		  <p class="task_body">
+		    <input class="body" id="body_task" name="task[body]" size="30" type="text">
+		  </p>
+
+		  <div id="controls_task" class="controls">
+		    <p class="due">
+		      <span>When's it due?<br></span>
+		      <select name="task[frame]" onchange="Tasks.changeFrame(this)"><option params="{&quot;task[due_at][date]&quot;: &quot;2008-08-24&quot;, &quot;task[due_at][minute]&quot;: &quot;15&quot;, &quot;task[due_at][hour]&quot;: &quot;5&quot;, &quot;task[due_at][am_pm]&quot;: &quot;pm&quot;}" selected="selected" value="today">Today</option><option params="{&quot;task[due_at][date]&quot;: &quot;2008-08-25&quot;, &quot;task[due_at][minute]&quot;: &quot;00&quot;, &quot;task[due_at][hour]&quot;: &quot;9&quot;, &quot;task[due_at][am_pm]&quot;: &quot;am&quot;}" value="tomorrow">Tomorrow</option><option params="{&quot;task[due_at][date]&quot;: &quot;2008-08-25&quot;, &quot;task[due_at][minute]&quot;: &quot;00&quot;, &quot;task[due_at][hour]&quot;: &quot;9&quot;, &quot;task[due_at][am_pm]&quot;: &quot;am&quot;}" value="this_week">This week</option><option params="{&quot;task[due_at][date]&quot;: &quot;2008-08-25&quot;, &quot;task[due_at][minute]&quot;: &quot;00&quot;, &quot;task[due_at][hour]&quot;: &quot;9&quot;, &quot;task[due_at][am_pm]&quot;: &quot;am&quot;}" value="next_week">Next week</option><option params="{&quot;task[due_at][date]&quot;: &quot;2008-08-25&quot;, &quot;task[due_at][minute]&quot;: &quot;00&quot;, &quot;task[due_at][hour]&quot;: &quot;9&quot;, &quot;task[due_at][am_pm]&quot;: &quot;am&quot;}" value="later">Later</option><option params="{&quot;task[due_at][date]&quot;: &quot;2008-08-25&quot;, &quot;task[due_at][minute]&quot;: &quot;00&quot;, &quot;task[due_at][hour]&quot;: &quot;9&quot;, &quot;task[due_at][am_pm]&quot;: &quot;am&quot;}" value="specific">Specific date/time…</option></select>      
+		      <span class="link_to_set_day_and_time">or <a href="#" onclick="Tasks.changeFrame($(this).up(0).previous('select'), 'specific'); return false;">Set date/time</a></span>
+		    </p>
+
+		    <div class="set_day_and_time">
+		      <div class="inner">
+		        <input id="calendar_task" name="task[due_at][date]" value="2008-08-24" type="hidden"><div class="calendar_date_select"><div class="header"><div class="pager"><a method="previous" href="#"><img src="/images/calendar_date_select-previous_month.gif"></a><select class="months"><option value="2007-01-01">Jan 2007</option><option value="2007-02-01">Feb 2007</option><option value="2007-03-01">Mar 2007</option><option value="2007-04-01">Apr 2007</option><option value="2007-05-01">May 2007</option><option value="2007-06-01">Jun 2007</option><option value="2007-07-01">Jul 2007</option><option value="2007-08-01">Aug 2007</option><option value="2007-09-01">Sep 2007</option><option value="2007-10-01">Oct 2007</option><option value="2007-11-01">Nov 2007</option><option value="2007-12-01">Dec 2007</option><option value="2008-01-01">Jan 2008</option><option value="2008-02-01">Feb 2008</option><option value="2008-03-01">Mar 2008</option><option value="2008-04-01">Apr 2008</option><option value="2008-05-01">May 2008</option><option value="2008-06-01">Jun 2008</option><option value="2008-07-01">Jul 2008</option><option value="2008-08-01">Aug 2008</option><option value="2008-09-01">Sep 2008</option><option value="2008-10-01">Oct 2008</option><option value="2008-11-01">Nov 2008</option><option value="2008-12-01">Dec 2008</option><option value="2009-01-01">Jan 2009</option><option value="2009-02-01">Feb 2009</option><option value="2009-03-01">Mar 2009</option><option value="2009-04-01">Apr 2009</option><option value="2009-05-01">May 2009</option><option value="2009-06-01">Jun 2009</option><option value="2009-07-01">Jul 2009</option><option value="2009-08-01">Aug 2009</option><option value="2009-09-01">Sep 2009</option><option value="2009-10-01">Oct 2009</option><option value="2009-11-01">Nov 2009</option><option value="2009-12-01">Dec 2009</option><option value="2010-01-01">Jan 2010</option><option value="2010-02-01">Feb 2010</option><option value="2010-03-01">Mar 2010</option><option value="2010-04-01">Apr 2010</option><option value="2010-05-01">May 2010</option><option value="2010-06-01">Jun 2010</option><option value="2010-07-01">Jul 2010</option><option value="2010-08-01">Aug 2010</option><option value="2010-09-01">Sep 2010</option><option value="2010-10-01">Oct 2010</option><option value="2010-11-01">Nov 2010</option><option value="2010-12-01">Dec 2010</option></select><a method="next" href="#"><img src="/images/calendar_date_select-next_month.gif"></a></div></div><div class="body"><table><tbody><tr class="weekdays"><th>S</th><th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th></tr><tr class="days"><td class="weekend other" date="2008-07-27"><a href="#">27</a></td><td class="other" date="2008-07-28"><a href="#">28</a></td><td class="other" date="2008-07-29"><a href="#">29</a></td><td class="other" date="2008-07-30"><a href="#">30</a></td><td class="other" date="2008-07-31"><a href="#">31</a></td><td class="" date="2008-08-01"><a href="#">1</a></td><td class="weekend" date="2008-08-02"><a href="#">2</a></td></tr><tr class="days"><td class="weekend" date="2008-08-03"><a href="#">3</a></td><td class="" date="2008-08-04"><a href="#">4</a></td><td class="" date="2008-08-05"><a href="#">5</a></td><td class="" date="2008-08-06"><a href="#">6</a></td><td class="" date="2008-08-07"><a href="#">7</a></td><td class="" date="2008-08-08"><a href="#">8</a></td><td class="weekend" date="2008-08-09"><a href="#">9</a></td></tr><tr class="days"><td class="weekend" date="2008-08-10"><a href="#">10</a></td><td class="" date="2008-08-11"><a href="#">11</a></td><td class="" date="2008-08-12"><a href="#">12</a></td><td class="" date="2008-08-13"><a href="#">13</a></td><td class="" date="2008-08-14"><a href="#">14</a></td><td class="" date="2008-08-15"><a href="#">15</a></td><td class="weekend" date="2008-08-16"><a href="#">16</a></td></tr><tr class="days"><td class="weekend" date="2008-08-17"><a href="#">17</a></td><td class="" date="2008-08-18"><a href="#">18</a></td><td class="" date="2008-08-19"><a href="#">19</a></td><td class="" date="2008-08-20"><a href="#">20</a></td><td class="" date="2008-08-21"><a href="#">21</a></td><td class="" date="2008-08-22"><a href="#">22</a></td><td class="weekend" date="2008-08-23"><a href="#">23</a></td></tr><tr class="days"><td class="today selected weekend" date="2008-08-24"><a href="#">24</a></td><td class="" date="2008-08-25"><a href="#">25</a></td><td class="" date="2008-08-26"><a href="#">26</a></td><td class="" date="2008-08-27"><a href="#">27</a></td><td class="" date="2008-08-28"><a href="#">28</a></td><td class="" date="2008-08-29"><a href="#">29</a></td><td class="weekend" date="2008-08-30"><a href="#">30</a></td></tr><tr class="days"><td class="weekend" date="2008-08-31"><a href="#">31</a></td><td class="other" date="2008-09-01"><a href="#">1</a></td><td class="other" date="2008-09-02"><a href="#">2</a></td><td class="other" date="2008-09-03"><a href="#">3</a></td><td class="other" date="2008-09-04"><a href="#">4</a></td><td class="other" date="2008-09-05"><a href="#">5</a></td><td class="weekend other" date="2008-09-06"><a href="#">6</a></td></tr></tbody></table></div><div class="footer"><span>Due: </span><span>August 24, 2008</span></div></div><script type="text/javascript">
+		//<![CDATA[
+		new CalendarDateSelect("calendar_task", {"id": "calendar_task"});
+		//]]>
+		</script>
+		        <div class="set_task_time">
+		          at <select id="task[due_at][hour]" name="task[due_at][hour]"><option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5" selected="selected">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+		<option value="10">10</option>
+		<option value="11">11</option>
+		<option value="12">12</option></select>:<select id="task[due_at][minute]" name="task[due_at][minute]"><option value="00">00</option>
+		<option value="15" selected="selected">15</option>
+		<option value="30">30</option>
+		<option value="45">45</option></select><select id="task[due_at][am_pm]" name="task[due_at][am_pm]"><option value="am">am</option>
+		<option value="pm" selected="selected">pm</option></select>
+		        </div>
+		      </div>
+		    </div>
+
+
+		      <p>Who's responsible?<br> 
+		      <select id="task_owner_id" name="task[owner_id]"><option value="101849" selected="selected">Me</option>
+		<option value="102331">Nigel Rausch</option></select></p>
+		      <p><label><input class="checkbox" id="task_public" name="task[public]" value="1" type="checkbox"><input name="task[public]" value="0" type="hidden"> Let everyone see this task</label></p>
+
+
+		    <p>Choose a category<br>
+		    <select id="category_task" name="task[category_id]" onchange="Tasks.changeCategory(this)"><option value="" selected="selected">None</option>
+		<option value="642012">Call</option>
+		<option value="642013">Demo</option>
+		<option value="642014">Email</option>
+		<option value="642015">Fax</option>
+		<option value="642016">Follow-up</option>
+		<option value="642017">Lunch</option>
+		<option value="642018">Meeting</option>
+		<option value="642892">Send Quote</option>
+		<option value="642019">Ship</option>
+		<option value="642020">Thank-you</option>
+		<option value="new">New category...</option></select>
+		    <a href="/categories" class="edit_categories" onclick='ReturnTo.remember("/categories")'>Edit categories</a>
+		    </p>
+		  </div>
+		</div>
+
+		</div>
+
+
+		    <p class="submit">
+		      <input name="commit" value="Add this task" type="submit">
+
+		        <span>or</span>
+		        <a class="admin" href="#" onclick="$(this).addClassName('clicked'); Tasks.swapButtonWithForm(); return false;" onmouseover="$(this).removeClassName('clicked')">Cancel</a>
+
+		    </p>
+		  </form>
+		</div>
+
+		    </div>
+		  </div>
+		</div>
+		  <div class="frames empty" id="task_frames"><h2 class="tasks_sidebar_header">Your upcoming tasks</h2><div class="flash" id="task_flash" style="display: none;"><div id="inner_task_flash"></div></div><div id="overdue_tasks_frame" class="frame overdue empty">
+		  <h2 class="frame_title">
+		    Overdue
+
+		  </h2>
+
+		  <div class="untimed">
+
+		  </div>
+
+		  <div class="timed">
+
+		  </div>
+		</div>
+		<div id="today_tasks_frame" class="frame today empty">
+		  <h2 class="frame_title">
+		    Today
+
+		  </h2>
+
+		  <div class="untimed">
+
+		  </div>
+
+		  <div class="timed">
+
+		  </div>
+		</div>
+		<div id="tomorrow_tasks_frame" class="frame tomorrow empty">
+		  <h2 class="frame_title">
+		    Tomorrow
+
+		  </h2>
+
+		  <div class="untimed">
+
+		  </div>
+
+		  <div class="timed">
+
+		  </div>
+		</div>
+		<div id="this_week_tasks_frame" class="frame this_week empty">
+		  <h2 class="frame_title">
+		    This week
+
+		  </h2>
+
+		  <div class="untimed">
+
+		  </div>
+
+		  <div class="timed">
+
+		  </div>
+		</div>
+		<div id="next_week_tasks_frame" class="frame next_week empty">
+		  <h2 class="frame_title">
+		    Next week
+
+		  </h2>
+
+		  <div class="untimed">
+
+		  </div>
+
+		  <div class="timed">
+
+		  </div>
+		</div>
+		<div id="later_tasks_frame" class="frame later empty">
+		  <h2 class="frame_title">
+		    Later
+
+		  </h2>
+
+		  <div class="untimed">
+
+		  </div>
+
+		  <div class="timed">
+
+		  </div>
+		</div>
+		</div>
+		</div>
+
+
+
+
+
+
+
+
+
+		<div class="contact_info">
+		  <h2 class="">
+
+		      <span class="edit">
+
+		          <a href="/people/9129952/edit" class="admin" onclick='ReturnTo.remember("/people/9129952/edit")'>Edit</a>
+		          | <a href="/people/9129952.vcf">vCard</a>
+
+		      </span>
+
+
+		      Contact Dr Nic
+
+		  </h2>
+
+
+		    <div class="contact_methods">
+
+		    <table>
+
+
+		        <tbody><tr>
+		          <th>Phone</th>
+		          <td>0412 002 126
+		            <span>Mobile</span>
+		          </td>
+		        </tr>
+
+            <tr>
+              <th></th>
+              <td>+61 7 3113 3033
+                <span>Home</span>
+              </td>
+            </tr>
+
+		    </tbody></table>
+
+
+
+		    <table>
+
+		        <tbody><tr>
+		          <th>Email</th>
+		          <td><a href="mailto:drnicwilliams@gmail.com?bcc=dropbox@58266425.drnic.highrisehq.com">drnicwilliams@gmail.com</a>
+		            <span>Work</span>
+		          </td>
+		        </tr>
+
+		        <tr>
+		          <th></th>
+		          <td><a href="mailto:drnic@mocra.com?bcc=dropbox@58266425.drnic.highrisehq.com">drnic@mocra.com</a>
+		            <span>Work</span>
+		          </td>
+		        </tr>
+
+		    </tbody></table>
+
+
+
+		    <table>
+
+		        <tbody><tr>
+		          <th>Website</th>
+		          <td><a href="http://drnicwilliams.com">http://drnicwilliams.com</a>
+		            <span>Work</span>
+		          </td>
+		        </tr>
+
+		    </tbody></table>
+
+
+
+		    <table>
+
+		        <tbody><tr>
+		          <th>IM</th>
+		          <td>nicwilliams
+		            <span>on Skype, Work</span>
+		          </td>
+		        </tr>
+
+		        <tr>
+		          <th></th>
+		          <td>drnicwilliams@gmail.com
+		            <span>on Google Talk, Work</span>
+		          </td>
+		        </tr>
+
+		    </tbody></table>
+
+
+
+		    <table class="address">
+		      <tbody><tr>
+		        <th>Work</th>
+		        <td>1 Park Rd<br>
+		Milton, QLD 4000<br>
+		Australia<br>
+		            <a href="http://maps.google.com/maps?q=1+Park+Rd+Milton%2C+QLD+4000+Australia" target="_blank">Map</a></td>
+		      </tr>
+		    </tbody></table>
+
+		</div>
+
+		</div>
+
+
+
+
+
+
+		  <div class="background">
+		    <h2 class="empty">
+
+		        <span class="edit">
+
+		            <a href="/people/9129952/background/edit" class="admin" onclick='ReturnTo.remember("/people/9129952/background/edit")'>Add text</a>
+
+		        </span>
+
+		      About Dr Nic
+		    </h2>
+
+		  </div>
+
+
+
+
+		  <div class="contact_dates">
+		    <h2 class="empty">
+
+		      Dates to remember
+		    </h2>
+		    <div class="content indent">
+
+		        <span class="add_dates">
+		          <a href="/people/9129952/contact_dates" class="admin">Add dates</a> like Birthday, First met, etc.
+		        </span>
+
+		    </div>
+		  </div>
+
+
+
+
+
+
+
+
+
+
+		          </div>
+		        </div>
+
+		        <div style="clear: both;"></div>
+		      </div>
+
+		      <br style="clear: both;">
+		    </div>
+
+  </div>
+
+</div>
+
+<script type="text/javascript">
+// <![CDATA[
+
+  new Test.Unit.Runner({
+    // replace this with your real tests
+    setup: function() {
+      
+    },
+    
+    teardown: function() {
+      
+    },
+    
+    "test that phone is callto:// link": function() { with(this) {
+    	var phoneLink = $('.contact_methods a.callto');
+    	assertEqual(2, phoneLink.size());
+    	assertEqual('0412 002 126', phoneLink.filter(':nth(0)').html(), 'Displayed text should be original');
+    	assertEqual('callto://+61412002126', phoneLink.filter(':nth(0)').attr('href'), 'Link should be callto:// with international number');
+    	assertEqual('+61 7 3113 3033', phoneLink.filter(':nth(1)').html(), 'Displayed text should be original');
+    	assertEqual('callto://+61731133033', phoneLink.filter(':nth(1)').attr('href'), 'Link should be callto:// with international number');
+    }},
+
+    
+      
+  }, {testLog: "testlog"}); 
+  // For each Test.UnitRunner instance, specify the element id where results will be
+  // published; e.g. <div id="testlog"/> above.
+  // That is, you can have multiple "new Test.Unit.Runner() { ... }" on this page, just
+  // create more <div id="testlog2"></div> etc, and pass the element id to the hash above:
+  // e.g. {testLog: "testlog2"}
+// ]]>
+</script>
+</body>
+</html>
