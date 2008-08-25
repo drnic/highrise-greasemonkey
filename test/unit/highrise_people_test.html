@@ -1085,8 +1085,13 @@
 
   new Test.Unit.Runner({
     // replace this with your real tests
+    _installed: false,
+    
     setup: function() {
-      
+      if (!this._installed) {
+        new Highrise.PersonView();
+        this._installed = true;
+      }
     },
     
     teardown: function() {
@@ -1094,12 +1099,12 @@
     },
     
     "test that phone is callto:// link": function() { with(this) {
-    	var phoneLink = $('.contact_methods a.callto');
-    	assertEqual(2, phoneLink.size());
-    	assertEqual('0412 002 126', phoneLink.filter(':nth(0)').html(), 'Displayed text should be original');
-    	assertEqual('callto://+61412002126', phoneLink.filter(':nth(0)').attr('href'), 'Link should be callto:// with international number');
-    	assertEqual('+61 7 3113 3033', phoneLink.filter(':nth(1)').html(), 'Displayed text should be original');
-    	assertEqual('callto://+61731133033', phoneLink.filter(':nth(1)').attr('href'), 'Link should be callto:// with international number');
+    	var phoneLinks = $$('.contact_methods a.callto');
+    	assertEqual(2, phoneLinks.size());
+    	assertEqual('0412 002 126', phoneLinks[0].innerHTML, 'Displayed text should be original');
+    	assertEqual('callto://+61412002126', phoneLinks[0].readAttribute('href'), 'Link should be callto:// with international number');
+    	assertEqual('+61 7 3113 3033', phoneLinks[1].innerHTML, 'Displayed text should be original');
+    	assertEqual('callto://+61731133033', phoneLinks[1].readAttribute('href'), 'Link should be callto:// with international number');
     }},
 
     
