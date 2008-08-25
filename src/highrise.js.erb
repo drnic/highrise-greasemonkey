@@ -1,7 +1,6 @@
 <%= include 'HEADER' %>
 
-var Highrise = {
-  Version: '<%= APP_VERSION %>',
-};
+<%= include 'person.js' %>
 
-<%= include 'some_library_from_src_folder.js' %>
+Highrise.Version = '<%= APP_VERSION %>';
+
