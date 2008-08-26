@@ -1,26 +1,18 @@
 <%= include 'HEADER.js' %>
 
 // TODO: Safari/GreaseKit doesn't like this:
-if (typeof GM_log != 'undefined') {
-  window.console = console || {};
-  window.console.log = console.log || GM_log;
+// if (typeof GM_log != 'undefined') {
+//   window.console = console || {};
+//   window.console.log = console.log || GM_log;
+// }
+if (typeof unsafeWindow != 'undefined') {
+  window.$$    = window.$$ || unsafeWindow['window'].$$;
 }
 
 <%= include 'person.js' %>
 
-if (typeof unsafeWindow != 'undefined') {
-  window.addEventListener("load", function(e) {
-    window.$$ = window.$$ || unsafeWindow['window'].$$;
-    new Highrise.PersonView();
-  }, false);
-} else {
-  // GreaseKit seems to work without the above
-  new Highrise.PersonView();
-}
-
-
-// How/when to enable each sub-script? E.g. person.js -> /people/123
-// Or can all scripts run on all pages without clash?
+// Activate each feature
+new Highrise.PersonView();
 
 Highrise.Version = '<%= APP_VERSION %>';
 

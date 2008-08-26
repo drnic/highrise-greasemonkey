@@ -63,6 +63,8 @@ task :install => :dist do
       "FireFox"
     when :safari
       "Safari"
+    else
+      browser
     end
     sh "open -a #{browser_name} #{script}"
     sh "open -a #{browser_name} #{ENV['DEMO']}" if ENV['DEMO']
