@@ -6,7 +6,8 @@
 //   window.console.log = console.log || GM_log;
 // }
 if (typeof unsafeWindow != 'undefined') {
-  window.$$    = window.$$ || unsafeWindow['window'].$$;
+  window.$$      = window.$$ || unsafeWindow['window'].$$;
+  window.Element = window.Element || unsafeWindow['window'].Element;
 }
 
 <%= include 'person.js' %>

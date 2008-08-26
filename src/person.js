@@ -1,12 +1,13 @@
 var Highrise = Highrise || {};
 
 Highrise.PersonView = function() {
+  this.markupPhoneNumbers();
+  this.markupSkypeIM();
+};
+
+Highrise.PersonView.prototype.markupPhoneNumbers = function() {
   var self = this;
-  var table = $$('.contact_methods table').detect(function(table) {
-    return $(table).select('th').any(function(header) {
-      return (header.innerHTML == 'Phone');
-    });
-  });
+  var table = this.findTable('Phone');
   table.select('tr td').each(function(element) {
     var matcher     = element.innerHTML.match(/([^<]+)(?:<span>([^<]*)<\/span>)/);
     var phoneNumber = matcher[1].strip();
@@ -18,7 +19,37 @@ Highrise.PersonView = function() {
     }
   });
 };
-  
+
+Highrise.PersonView.prototype.markupSkypeIM = function() {
+  var table = this.findTable('IM');
+  table.select('tr td').each(function(element) {
+    var matcher  = element.innerHTML.match(/^([^<]+)(?:<span>on ([^<]+), ([^<]+)<\/span>)/);
+    if (matcher) {
+      var username = matcher[1].strip();
+      var imType   = matcher[2];
+      var usage    = matcher[3];
+      console.log(username);
+      console.log(imType);
+      var usernameLink = username;
+      if (imType == "Skype") {
+        usernameLink = "<a href='skype:" + username +
+          "' class='skype'>" + username + "</a>";
+      };
+      element.innerHTML = usernameLink + " <span>on " +
+        imType + ", " + usage + "</span>";
+    }
+  });
+};
+
+Highrise.PersonView.prototype.findTable = function(label) {
+  return $$('.contact_methods table').detect(function(table) {
+    return $(table).select('th').any(function(header) {
+      return (header.innerHTML == label);
+    });
+  });
+};
+
+
 Highrise.PersonView.prototype.isPhoneNumber = function(phoneNumber) {
   var digits = this.digitsOnly(phoneNumber);
   return (digits && digits.length >= 10 && digits.length >= 7);
