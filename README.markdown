@@ -43,4 +43,5 @@ Or run `script/js_autotest`, modify javascript or HTML test files and the tests 
 
 ## Author
 
-Dr Nic Williams, http://drnicwilliams.com
+Dr Nic Williams, [http://drnicwilliams.com](http://drnicwilliams.com)
+CEO, Mocra, [http://mocra.com](http://mocra.com) - the premier Rails/iPhone SDK consultancy
