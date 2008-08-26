@@ -17,6 +17,7 @@ A set of extensions to the Highrise CRM by 37signals:
 * User-defined home international prefix (e.g. +61 for Australia or +1 for USA)
 * Auto-assign some values (such as Country) on New Contact/Company form
 * On contact page, show other contacts for the same company (using Jester for RESTful access)
+* Dashboard (or any notes list) - support partial + fully collapsed notes list, say like Gmail
 * Addresses include Google Maps link or embedded map
 * IM Skype name converted to skype: link, etc
 * Auto-assign each note a Case, based on the user/company; annoying to have to manually assign Cases
