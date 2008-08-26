@@ -10,6 +10,7 @@ Highrise.PersonView.prototype = {
         return (header.innerHTML == 'Phone');
       });
     });
+    console.log(table);
     table.select('tr td').each(function(element) {
       var matcher     = element.innerHTML.match(/([^<]+)(?:<span>([^<]*)<\/span>)/);
       var phoneNumber = matcher[1].strip();

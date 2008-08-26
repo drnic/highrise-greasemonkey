@@ -16,7 +16,7 @@ APP_VERSION  = '0.1.0'
 APP_NAME     = 'highrise'
 RUBYFORGE_PROJECT = APP_NAME
 APP_TEMPLATE = "#{APP_NAME}.js.erb"
-APP_FILE_NAME= "#{APP_NAME}.js"
+APP_FILE_NAME= "#{APP_NAME}.user.js"
 
 APP_ROOT     = File.expand_path(File.dirname(__FILE__))
 APP_SRC_DIR  = File.join(APP_ROOT, 'src')
@@ -47,6 +47,25 @@ task :dist do
     FileUtils.mkdir_p "website/dist"
     FileUtils.copy_file "dist/#{APP_FILE_NAME}",       "website/dist/#{APP_FILE_NAME}"
     FileUtils.copy_file "dist/#{APP_FILE_NAME}",       "website/dist/#{APP_NAME}-#{APP_VERSION}.js"
+  end
+end
+
+desc <<-DESC
+Install script in browser(s) and optionally launch demo page.
+  - BROWSERS=safari,firefox, or BROWSER=safari, or firefox by default
+  - DEMO=https://drnic.highrisehq.com/people/9129952 - launches url in each browser
+DESC
+task :install => :dist do
+  script = File.join(APP_DIST_DIR, APP_FILE_NAME)
+  (ENV['BROWSER'] || ENV['BROWSERS'] || 'firefox').split(',').each do |browser|
+    browser_name = case browser.downcase.to_sym
+    when :firefox
+      "FireFox"
+    when :safari
+      "Safari"
+    end
+    sh "open -a #{browser_name} #{script}"
+    sh "open -a #{browser_name} #{ENV['DEMO']}" if ENV['DEMO']
   end
 end
 
