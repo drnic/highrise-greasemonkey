@@ -10,7 +10,7 @@ A set of extensions to the Highrise CRM by 37signals:
 
 * within contact information, phone numbers converted to callto:// links to enable access to Skype/VOIP apps
 
-<a href="http://skitch.com/drnic/wep3/highrise-greasemonkey-phone-numbers-converted-to-callto-links"><img src="http://img.skitch.com/20080826-1e34ar1x8xmsfe4rh45g39dqiy.jpg" alt="highrise-greasemonkey - phone numbers converted to callto: links" />
+<a href="http://skitch.com/drnic/wep3/highrise-greasemonkey-phone-numbers-converted-to-callto-links"><img src="http://img.skitch.com/20080826-1e34ar1x8xmsfe4rh45g39dqiy.jpg" alt="highrise-greasemonkey - phone numbers converted to callto: links" /></a>
 
 ## Todo / Issues
 
@@ -24,6 +24,8 @@ A set of extensions to the Highrise CRM by 37signals:
 * Person Search - include contact picture within search results
 
 PLUS - as above, make it work on Firefox or raise Greasemonkey/Prototype bug report
+
+META TODO - add rake task to upload new versions to [http://userscripts.org](http://userscripts.org)
 
 ## Requirements
 
