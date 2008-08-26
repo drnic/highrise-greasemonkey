@@ -19,11 +19,27 @@ For Firefox: requires [Greasemonkey](https://addons.mozilla.org/en-US/firefox/ad
 
 To install to Safari:
 
-  BROWSER#safari rake install
+  BROWSERS=safari rake install
 
 To install to a Fluid.app wrapper app for Highrise, say called 'Highrise':
 
-  BROWSER#Highrise rake install
+  BROWSERS=Highrise rake install
+
+## Unit tests
+
+This extension is developed via TDD javascript unit tests. 
+
+To run all of them against all your locally install browsers:
+
+  rake test_units
+
+Or specific browsers:
+
+  BROWSERS=safari rake test_units
+
+Or load individual test HTML files into a browser, such as `test/unit/highrise_people_test.html` to run those tests.
+
+Or run `script/js_autotest`, modify javascript or HTML test files and the tests will be automatically launched in Safari ([more info](http://drnicwilliams.com/2008/01/04/autotesting-javascript-in-rails/))
 
 ## Author
 
