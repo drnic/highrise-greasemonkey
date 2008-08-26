@@ -12,6 +12,14 @@ A set of extensions to the Highrise CRM by 37signals:
 
 <a href="http://skitch.com/drnic/wep3/highrise-greasemonkey-phone-numbers-converted-to-callto-links"><img src="http://img.skitch.com/20080826-1e34ar1x8xmsfe4rh45g39dqiy.jpg" alt="highrise-greasemonkey - phone numbers converted to callto: links" />
 
+## Todo / Issues
+
+* User-defined home international prefix (e.g. +61 for Australia or +1 for USA)
+* Auto-assign some values (such as Country) on New Contact/Company form
+* On contact page, show other contacts for the same company (using Jester for RESTful access)
+
+PLUS - as above, make it work on Firefox or raise Greasemonkey/Prototype bug report
+
 ## Requirements
 
 For Safari or Fluid.app apps: requires [GreaseKit](http://8-p.info/greasekit/)
