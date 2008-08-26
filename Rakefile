@@ -52,8 +52,7 @@ end
 
 desc <<-DESC
 Install script in browser(s) and optionally launch demo page.
-  - BROWSERS=safari,firefox, or BROWSER=safari, or firefox by default
-  - DEMO=https://drnic.highrisehq.com/people/9129952 - launches url in each browser
+  - BROWSERS=safari,firefox, or BROWSER=safari, or BROWSER=<Name of Fluid app>, or firefox by default
 DESC
 task :install => :dist do
   script = File.join(APP_DIST_DIR, APP_FILE_NAME)
@@ -67,7 +66,6 @@ task :install => :dist do
       browser
     end
     sh "open -a #{browser_name} #{script}"
-    sh "open -a #{browser_name} #{ENV['DEMO']}" if ENV['DEMO']
   end
 end
 
