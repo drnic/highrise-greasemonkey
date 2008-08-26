@@ -19,11 +19,11 @@ For Firefox: requires [Greasemonkey](https://addons.mozilla.org/en-US/firefox/ad
 
 To install to Safari:
 
-  BROWSERS=safari rake install
+    BROWSERS=safari rake install
 
 To install to a Fluid.app wrapper app for Highrise, say called 'Highrise':
 
-  BROWSERS=Highrise rake install
+    BROWSERS=Highrise rake install
 
 ## Unit tests
 
@@ -31,11 +31,11 @@ This extension is developed via TDD javascript unit tests.
 
 To run all of them against all your locally install browsers:
 
-  rake test_units
+    rake test_units
 
 Or specific browsers:
 
-  BROWSERS=safari rake test_units
+    BROWSERS=safari rake test_units
 
 Or load individual test HTML files into a browser, such as `test/unit/highrise_people_test.html` to run those tests.
 
