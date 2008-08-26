@@ -10,7 +10,11 @@ A set of extensions to the Highrise CRM by 37signals:
 
 * within contact information, phone numbers converted to callto:// links to enable access to Skype/VOIP apps
 
-<a href="http://skitch.com/drnic/wep3/highrise-greasemonkey-phone-numbers-converted-to-callto-links"><img src="http://img.skitch.com/20080826-1e34ar1x8xmsfe4rh45g39dqiy.jpg" alt="highrise-greasemonkey - phone numbers converted to callto: links" /></a>
+<img src="http://img.skitch.com/20080826-1e34ar1x8xmsfe4rh45g39dqiy.jpg" alt="highrise-greasemonkey - phone numbers converted to callto: links" />
+
+* Skype IM username converted to skype: link.
+
+<img src="http://img.skitch.com/20080826-p39n7jr3nb2u2jfb43r9gi84x7.jpg" alt="highrise-greasemonkey - skype links"/>
 
 ## Todo / Issues
 
@@ -19,7 +23,6 @@ A set of extensions to the Highrise CRM by 37signals:
 * On contact page, show other contacts for the same company (using Jester for RESTful access)
 * Dashboard (or any notes list) - support partial + fully collapsed notes list, say like Gmail
 * Addresses include Google Maps link or embedded map
-* IM Skype name converted to skype: link, etc
 * Auto-assign each note a Case, based on the user/company; annoying to have to manually assign Cases
 * Person Search - include contact picture within search results
 
