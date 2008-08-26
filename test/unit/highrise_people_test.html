@@ -1107,6 +1107,15 @@
     	assertEqual('callto://+61731133033', phoneLinks[1].readAttribute('href'), 'Link should be callto:// with international number');
     }},
 
+    "test that skype IM field is skype: link": function() { with(this) {
+      var skypeLinks = $$('.contact_methods a.skype');
+      assertEqual(1, skypeLinks.size());
+      if (skypeLinks.size() > 0) {
+        assertEqual('nicwilliams', skypeLinks[0].innerHTML);
+        assertEqual('skype:nicwilliams', skypeLinks[0].readAttribute('href'), 'Link should be skype:');
+      }
+    }},
+
     
       
   }, {testLog: "testlog"}); 
