@@ -8,37 +8,41 @@ Highrise.PersonView = function() {
 Highrise.PersonView.prototype.markupPhoneNumbers = function() {
   var self = this;
   var table = this.findTable('Phone');
-  table.select('tr td').each(function(element) {
-    var matcher     = element.innerHTML.match(/([^<]+)(?:<span>([^<]*)<\/span>)/);
-    var phoneNumber = matcher[1].strip();
-    var phoneType   = matcher[2];
-    if (self.isPhoneNumber(phoneNumber)) {
-      var linkedPhone = "<a href='callto://" + self.toCallable(phoneNumber) +
-        "' class='callto'>" + phoneNumber + "</a>";
-      element.innerHTML = linkedPhone + " <span>" + phoneType + "</span>";
-    }
-  });
+  if (table) {
+    table.select('tr td').each(function(element) {
+      var matcher     = element.innerHTML.match(/([^<]+)(?:<span>([^<]*)<\/span>)/);
+      var phoneNumber = matcher[1].strip();
+      var phoneType   = matcher[2];
+      if (self.isPhoneNumber(phoneNumber)) {
+        var linkedPhone = "<a href='callto://" + self.toCallable(phoneNumber) +
+          "' class='callto'>" + phoneNumber + "</a>";
+        element.innerHTML = linkedPhone + " <span>" + phoneType + "</span>";
+      }
+    });
+  };
 };
 
 Highrise.PersonView.prototype.markupSkypeIM = function() {
   var table = this.findTable('IM');
-  table.select('tr td').each(function(element) {
-    var matcher  = element.innerHTML.match(/^([^<]+)(?:<span>on ([^<]+), ([^<]+)<\/span>)/);
-    if (matcher) {
-      var username = matcher[1].strip();
-      var imType   = matcher[2];
-      var usage    = matcher[3];
-      console.log(username);
-      console.log(imType);
-      var usernameLink = username;
-      if (imType == "Skype") {
-        usernameLink = "<a href='skype:" + username +
-          "' class='skype'>" + username + "</a>";
-      };
-      element.innerHTML = usernameLink + " <span>on " +
-        imType + ", " + usage + "</span>";
-    }
-  });
+  if (table) {
+    table.select('tr td').each(function(element) {
+      var matcher  = element.innerHTML.match(/^([^<]+)(?:<span>on ([^<]+), ([^<]+)<\/span>)/);
+      if (matcher) {
+        var username = matcher[1].strip();
+        var imType   = matcher[2];
+        var usage    = matcher[3];
+        console.log(username);
+        console.log(imType);
+        var usernameLink = username;
+        if (imType == "Skype") {
+          usernameLink = "<a href='skype:" + username +
+            "' class='skype'>" + username + "</a>";
+        };
+        element.innerHTML = usernameLink + " <span>on " +
+          imType + ", " + usage + "</span>";
+      }
+    });
+  };
 };
 
 Highrise.PersonView.prototype.findTable = function(label) {
