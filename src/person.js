@@ -2,20 +2,18 @@ var Highrise = Highrise || {};
 
 Highrise.PersonView = function() {
   this.markupPhoneNumbers();
-  this.markupSkypeIM();
+//  this.markupSkypeIM();
 };
 
 Highrise.PersonView.prototype.markupPhoneNumbers = function() {
   var self = this;
-  var table = this.findTable('Phone');
-  table.select('tr td').each(function(element) {
-    var matcher     = element.innerHTML.match(/([^<]+)(?:<span>([^<]*)<\/span>)/);
+  $$('.phone_number .value').each( function(element) {
+    var matcher     = element.innerHTML.match(/([^<]+)(?:(<span class="[^"]+">[^<]*<\/span>))/);
     var phoneNumber = matcher[1].strip();
     var phoneType   = matcher[2];
     if (self.isPhoneNumber(phoneNumber)) {
-      var linkedPhone = "<a href='callto://" + self.toCallable(phoneNumber) +
-        "' class='callto'>" + phoneNumber + "</a>";
-      element.innerHTML = linkedPhone + " <span>" + phoneType + "</span>";
+      var linkedPhone = "<a href='callto://" + self.toCallable(phoneNumber) + "' class='callto'>" + phoneNumber + "</a>";
+      element.innerHTML = linkedPhone + " " + phoneType;
     }
   });
 };
@@ -42,7 +40,7 @@ Highrise.PersonView.prototype.markupSkypeIM = function() {
 };
 
 Highrise.PersonView.prototype.findTable = function(label) {
-  return $$('.contact_methods table').detect(function(table) {
+  return $$('.contact_methods table').findAll(function(table) {
     return $(table).select('th').any(function(header) {
       return (header.innerHTML == label);
     });
@@ -72,5 +70,5 @@ Highrise.PersonView.prototype.toCallable = function(phoneNumber) {
 
 Highrise.PersonView.prototype.phonePrefix = function() {
   // TODO - store in user preferences
-  return "+61";
+  return "+41";
 };
